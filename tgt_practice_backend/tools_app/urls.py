@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.views.decorators.csrf import csrf_protect
 from graphene_django.views import GraphQLView
 from django.conf import settings
@@ -10,7 +10,7 @@ from api.schema import schema
 from api.views import graphql_docs
 from tools_app import settings
 
-urlpatterns = [
+sub_patterns = [
     settings.AUTH.urlpattern,
     path("", views.index),
     path("logout_user", views.logout_user, name="logout_user"),
@@ -19,3 +19,7 @@ urlpatterns = [
     path("docs", graphql_docs, name="graphql_docs"),
     path("admin/", admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+urlpatterns = [
+    path("api/", include(sub_patterns)),
+]

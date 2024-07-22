@@ -18,7 +18,7 @@ const LogInWindow: React.FC = () => {
                     <h1>Log In</h1>
                 </div>
                 <div className="login-button">
-                    <Link to="http://172.20.10.6:8000/login" className="button-content" style={{textDecoration: 'none'}}>
+                    <Link to="https://172.20.10.6/api/login" className="button-content" style={{textDecoration: 'none'}}>
                         <div className="button-icon">
                             <img src="/src/assets/MicrosoftLogo.png" alt="Microsoft Logo" />
                         </div>

@@ -7,10 +7,9 @@ import LogInWindow from "../../components/LogInWindow/LogInWindow.tsx";
 
 
 const LogIn: React.FC = () => {
-    const { loading, error, data } = useQuery(GET_CURRENT_USER);
+    const { loading, data } = useQuery(GET_CURRENT_USER);
 
     if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error.message}</div>;
 
     // Check if the user is logged in and redirect to home
     if (data && data.me) {

@@ -22,15 +22,12 @@ services:
       - "8000:8000"
     env_file:
       - ./tgt_practice_backend/.env
-  react:
-    build:
-      context: ./tgt_practice_frontend
-      dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
-    volumes:
-      - .:/app
-      - /app/node_modules
-    container_name: tgt_practice_frontend
+#  react:
+#    build:
+#     context: ./tgt_practice_frontend
+#   volumes:
+#     - ./tgt_practice_frontend/dist:/app
+#   ports:
+#     - "3000:80"
 volumes:
   static:
