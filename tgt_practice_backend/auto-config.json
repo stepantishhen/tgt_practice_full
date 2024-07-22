@@ -6,7 +6,7 @@
     "appUpdates": {
         "web": {
             "redirectUris": [
-                "http://172.20.10.6:8000/getAToken"
+                "http://172.20.10.6/getAToken"
                 ]
         }
     },

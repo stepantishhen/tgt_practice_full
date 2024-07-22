@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1", "t")
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ["http://172.20.10.6", "https://172.20.10.6"]
+CSRF_TRUSTED_ORIGINS = ["http://172.20.10.6", "https://172.20.10.6", "http://172.20.10.6:3000"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -114,7 +114,8 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-SECURE_COOKIE = False
+SECURE_COOKIE = True
+#SECURE_COOKIE = False
 
 AUTH = Auth(
     os.getenv("CLIENT_ID"),

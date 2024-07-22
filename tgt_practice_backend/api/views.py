@@ -45,7 +45,7 @@ def call_api(request, *, context):
             user.save()
 
         login(request, user)
-        redirect_url = "http://172.20.10.6:3000/home"
+        redirect_url = "https://172.20.10.6/home"
 
         return redirect(redirect_url)
 
@@ -57,4 +57,4 @@ def graphql_docs(request):
 
 def logout_user(request):
     logout(request)
-    return redirect("http://172.20.10.6:3000")
+    return redirect("https://172.20.10.6")
