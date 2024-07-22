@@ -1,6 +1,5 @@
 import React from "react";
 import './LogInWindow.css';
-import {Link} from "react-router-dom";
 
 const LogInWindow: React.FC = () => {
 
@@ -18,14 +17,14 @@ const LogInWindow: React.FC = () => {
                     <h1>Log In</h1>
                 </div>
                 <div className="login-button">
-                    <Link to="https://172.20.10.6/api/login" className="button-content" style={{textDecoration: 'none'}}>
+                    <a onClick={() => window.location.href = 'https://172.20.10.6/api'} className="button-content" style={{textDecoration: 'none'}}>
                         <div className="button-icon">
                             <img src="/src/assets/MicrosoftLogo.png" alt="Microsoft Logo" />
                         </div>
                         <div className="button-info">
                             <p>Log in via Microsoft</p>
                         </div>
-                    </Link>
+                    </a>
                 </div>
                 <div className="heading">
                     <p>In order to log in to the app, you need to log in with Microsoft.</p>

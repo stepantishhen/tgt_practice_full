@@ -20,6 +20,7 @@ def index(request):
 @settings.AUTH.login_required(scopes=["User.Read", "Directory.Read.All"])
 def call_api(request, *, context):
     if context["access_token"]:
+        print("I'm in IF")
         api_result = requests.get(
             "https://graph.microsoft.com/v1.0/me/appRoleAssignments",
             headers={"Authorization": "Bearer " + context["access_token"]},
@@ -35,6 +36,7 @@ def call_api(request, *, context):
         user, created = User.objects.get_or_create(
             username=user_info["userPrincipalName"]
         )
+        print(user)
         if created:
             app_role_id = api_result.json()["value"][0]["appRoleId"]
             if app_role_id == "0be6dabc-574d-4913-8652-befb6d290ed5":
@@ -43,8 +45,8 @@ def call_api(request, *, context):
                 group, _ = Group.objects.get_or_create(name="user")
             user.groups.add(group)
             user.save()
-
         login(request, user)
+
         redirect_url = "https://172.20.10.6/home"
 
         return redirect(redirect_url)

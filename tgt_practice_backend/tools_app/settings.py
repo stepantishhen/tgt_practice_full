@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1", "t")
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ["http://172.20.10.6", "https://172.20.10.6", "http://172.20.10.6:3000"]
+CSRF_TRUSTED_ORIGINS = ["http://172.20.10.6", "https://172.20.10.6", "http://172.20.10.6:3000", "https://172.20.10.6:3000"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -85,7 +85,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_HEADERS = default_headers + ("cache-control", "cookies")
+CORS_ALLOW_HEADERS = default_headers + ("cache-control", "cookies", "X-CSRFToken")
 CORS_ORIGIN_ALLOW_ALL = True
 
 LANGUAGE_CODE = "en-us"
@@ -114,7 +114,8 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-SECURE_COOKIE = True
+SECURE_COOKIE = False
+SESSION_COOKIE_SECURE = False
 #SECURE_COOKIE = False
 
 AUTH = Auth(
